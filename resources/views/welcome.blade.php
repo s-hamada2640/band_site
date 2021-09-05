@@ -1,100 +1,130 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    h1{
+      width: 350px;
+      padding-left: 5px;
+      margin-left: 20px;
+      float: left;
+    }
 
-        <title>Laravel</title>
+    .header-right{
+      float: right;
+    }
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+    .link{
+      display: inline-block;
+      height: 35px; 
+      width: 150px;
+    }
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    .sing-up{
+      margin-left:20px;
+      padding-right: 10px;
+      color: honeydew;
+      background-color:gray;
+      float:left;
+    }
 
-            .full-height {
-                height: 100vh;
-            }
+    a.link-login,a.link-sing-up {
+      border: 2px solid #b84c00;
+    }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    .header-right{
+      padding-top: 50px;
+      margin-left: 20px;
+    }
 
-            .position-ref {
-                position: relative;
-            }
+    .image-vw{
+      width: 70vw;
+      padding: 5px;
+      margin-left: 20px;
+    }
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+  .memberserach{
+    padding-left: 5px;
+    padding-right: 25px;
+    margin-left: 20px;
+  }
 
-            .content {
-                text-align: center;
-            }
+    h2{
+      font-size: 23px;
+      padding-top: 35px;
+      padding-bottom: 0;
+      margin-left: 20px;
+    }
 
-            .title {
-                font-size: 84px;
-            }
+    h3{
+      font-size: 16px;
+      line-height: 10px;
+      margin-left: 20px;
+    }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+    .toukou{
+      font-size: 12px;
+      line-height: 10px;
+      margin-left: 20px;
+    }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+    footer{
+      text-align: center;
+    }
+  </style>
+</head>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
+<body>
+    <header>
+    <div class="container">
+      <h1><a href="toppage-after-login.html"><img src="images/logo.png" alt="Music×Search" height="50px"></a></h1>
+      <div class="header-right">
+        <a href="" class="welcome">ようこそ＊＊さん</a>
+      </div>
+    </div>
+ </header>
+  
+  <main>
+    <img src="images/topimg.jpg" alt="イメージ画像" class="image-vw">
+    <br>
+    <a href="" class="memberserach"><img src="images/member.png" alt="メンバーを探す" width="350px"></a>
+    <a href="" class="articleserach"><img src="images/article.png" alt="記事から探す" width="350px"></a>
+      
+    <h2>最新の記事</h2>
+    <hr>
+    <h3>投稿タイトル1</h3>
+    <div class="toukou">
+        <p>ユーザー名(地域 年齢)</p>
+        <p>本文最初の数行を表示</p>
+        <p>投稿日時</p>
+    </div>
+    <hr>
+    <h3>投稿タイトル1</h3>
+    <div class="toukou">
+        <p>ユーザー名(地域 年齢)</p>
+        <p>本文最初の数行を表示</p>
+        <p>投稿日時</p>
+      </div>
+    <hr>
+    <h3>投稿タイトル1</h3>
+    <div class="toukou">
+      <p>ユーザー名(地域 年齢)</p>
+      <p>本文最初の数行を表示</p>
+      <p>投稿日時</p>
+    </div>
+    <hr>
+    <h3>投稿タイトル1</h3>
+    <div class="toukou">
+      <p>ユーザー名(地域 年齢)</p>
+      <p>本文最初の数行を表示</p>
+      <p>投稿日時</p>
+    </div>
+   <br><br><br><br><br><br><br><br><br><br><br>
+  </main>
+  <footer>
+    <small>Copyright&copy;Music×Search 2021</small>
+  </footer>
+  
+</body>
 </html>
