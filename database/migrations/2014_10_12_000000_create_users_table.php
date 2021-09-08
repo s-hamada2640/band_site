@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('favorite_artist',200)->nullable(); //好きなアーティスト.空白可
             $table->string('sex')->nullable(); //性別.空白可
             $table->integer('age')->nullable(); //年齢.空白可
-            $table->string('activity_timezoon')->nullable(); //活動時間帯
+            $table->string('activity_timezone')->nullable(); //活動時間帯.空白可
             $table->string('password'); //パスワード
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

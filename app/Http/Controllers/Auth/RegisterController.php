@@ -53,6 +53,11 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'activity_area' => ['required', 'string', 'max:255'],
+            'my_part' => ['required', 'string', 'max:255'],
+            'activity_level' => ['required', 'string', 'max:255'],
+            'my_level' => ['required', 'string', 'max:255'],
+            'genre' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -68,6 +73,15 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'activity_area' => $data['activity_area'],
+            'my_part' => $data['my_part'],
+            'activity_level' => $data['activity_level'],
+            'my_level' => $data['my_level'],
+            'favorite_artist' => $data['favorite_artist'],
+            'genre' => $data['genre'],
+            'sex' => $data['sex'],
+            'age' => $data['age'],
+            'activity_timezone' => $data['activity_timezone'],
         ]);
     }
 }
