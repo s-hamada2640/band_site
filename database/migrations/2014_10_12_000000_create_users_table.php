@@ -15,10 +15,19 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('name',50); //ユーザー名
+            $table->string('email')->unique(); //メールアドレス
+            $table->string('activity_area'); //活動地域
+            $table->string('my_part'); //自分のパート
+            $table->string('activity_level',100); //活動レベル
+            $table->string('my_level',100); //自分のレベル感
+            $table->string('genre'); //演奏ジャンル
+            $table->string('favorite_artist',200)->nullable(); //好きなアーティスト.空白可
+            $table->string('sex')->nullable(); //性別.空白可
+            $table->integer('age')->nullable(); //年齢.空白可
+            $table->string('activity_timezoon')->nullable(); //活動時間帯
+            $table->string('password'); //パスワード
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
