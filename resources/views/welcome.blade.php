@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
+@extends('layouts.app')
+
+@section('css')
     h1{
       width: 350px;
       padding-left: 5px;
@@ -68,23 +65,9 @@
       line-height: 10px;
       margin-left: 20px;
     }
+@endsection
 
-    footer{
-      text-align: center;
-    }
-  </style>
-</head>
-
-<body>
-    <header>
-    <div class="container">
-      <h1><a href="toppage-after-login.html"><img src="images/logo.png" alt="Music×Search" height="50px"></a></h1>
-      <div class="header-right">
-        <a href="" class="welcome">ようこそ＊＊さん</a>
-      </div>
-    </div>
- </header>
-  
+@section('content')
   <main>
     <img src="images/topimg.jpg" alt="イメージ画像" class="image-vw">
     <br>
@@ -122,9 +105,6 @@
     </div>
    <br><br><br><br><br><br><br><br><br><br><br>
   </main>
-  <footer>
-    <small>Copyright&copy;Music×Search 2021</small>
-  </footer>
-  
-</body>
-</html>
+@endsection
+
+
