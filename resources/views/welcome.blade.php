@@ -68,7 +68,7 @@
 @endsection
 
 @section('content')
-  <main>
+  <!-- <main>
     <img src="images/topimg.jpg" alt="イメージ画像" class="image-vw">
     <br>
     <a href="" class="memberserach"><img src="images/member.png" alt="メンバーを探す" width="350px"></a>
@@ -104,7 +104,7 @@
       <p>投稿日時</p>
     </div>
    <br><br><br><br><br><br><br><br><br><br><br>
-  </main>
+  </main> -->
 @endsection
 
 

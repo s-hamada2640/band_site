@@ -38,14 +38,8 @@
     .image-vw{
       width: 70vw;
       padding: 5px;
-      margin-left: 20px;
+      margin: 0 auto;
     }
-
-  .memberserach{
-    padding-left: 5px;
-    padding-right: 25px;
-    margin-left: 20px;
-  }
 
     h2{
       font-size: 23px;
@@ -69,44 +63,27 @@
 
 @section('content')
   <main>
-    <img src="images/topimg.jpg" alt="イメージ画像" class="image-vw">
+    <img src="images/topimg.jpg" alt="イメージ画像" class="image-vw d-block">
     <br>
-    <a href="" class="memberserach"><img src="images/member.png" alt="メンバーを探す" width="350px"></a>
-    <a href="" class="articleserach"><img src="images/article.png" alt="記事から探す" width="350px"></a>
+    <div class="container">
+      <div class="row">
+        <a href="" class="col d-block"><img class="mx-auto d-block mb-3 mb-lg-0" src="images/member.png" alt="メンバーを探す" width="350"></a>
+        <a href="" class="col d-block"><img class="mx-auto d-block" src="images/article.png" alt="記事から探す" width="350"></a>
+      </div>
+    </div>
       
     <h2>最新の記事</h2>
 
-    <!-- foreachで回す -->
-    <hr>
-    <h3><a href="/posts/show">投稿タイトル1</a></h3>
-    <div class="toukou">
-        <p>ユーザー名(地域 年齢)</p>
-        <p>本文最初の数行を表示</p>
-        <p>投稿日時</p>
-    </div>
-    <!-- endforeach -->
-
-    <hr>
-    <h3><a>投稿タイトル1</a></h3>
-    <div class="toukou">
-        <p>ユーザー名(地域 年齢)</p>
-        <p>本文最初の数行を表示</p>
-        <p>投稿日時</p>
+    @foreach($posts as $post)
+      <hr>
+      <h3><a href="{{route('posts.show', $post->id)}}">{{ $post->title }}</a></h3>
+      <div class="toukou">
+          <p>{{ $post->user->name }}({{ $post->user->age }})</p>
+          <p>{{ Str::limit($post->message,20)}}</p>
+          <p>{{ $post->created_at }}</p>
       </div>
-    <hr>
-    <h3><a>投稿タイトル1</a></h3>
-    <div class="toukou">
-      <p>ユーザー名(地域 年齢)</p>
-      <p>本文最初の数行を表示</p>
-      <p>投稿日時</p>
-    </div>
-    <hr>
-    <h3><a>投稿タイトル1</a></h3>
-    <div class="toukou">
-      <p>ユーザー名(地域 年齢)</p>
-      <p>本文最初の数行を表示</p>
-      <p>投稿日時</p>
-    </div>
+    @endforeach
+
    <br><br><br><br><br><br><br><br><br><br><br>
   </main>
 @endsection
