@@ -31,7 +31,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -42,7 +42,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $posts = new Post;
+        $form = $request->all();
+        unset($form['_token']);
+        $posts->fill($form)->save();
+
+        return redirect()->route('posts.index');
     }
 
     /**

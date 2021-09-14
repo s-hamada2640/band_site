@@ -62,7 +62,8 @@
 @endsection
 
 @section('content')
-  <main>
+  <main class="container">
+    <div class="text-right mb-3"><a href="{{route('posts.create')}}"><img src="images/PostAnArticle.png" alt="新規投稿" width="120"></a></div>
     <img src="images/topimg.jpg" alt="イメージ画像" class="image-vw d-block">
     <br>
     <div class="container">
@@ -72,18 +73,24 @@
       </div>
     </div>
       
+  
     <h2>最新の記事</h2>
-
     @foreach($posts as $post)
       <hr>
+      
+      <!-- タイトル -->
       <h3><a href="{{route('posts.show', $post->id)}}">{{ $post->title }}</a></h3>
+
       <div class="toukou">
-          <p>{{ $post->user->name }}({{ $post->user->age }})</p>
-          <p>{{ Str::limit($post->message,20)}}</p>
-          <p>{{ $post->created_at }}</p>
+          <!--ユーザー名、年齢/性別-->
+          <p>{{ $post->user->name }}({{ $post->user->age }}/{{$post->user->sex}})</p>
+
+          <!-- メッセージ -->
+          <p>{{ Str::limit($post->message,"20")}}</p>
+          
+          <!-- 投稿日時 -->
+          <p>投稿日{{ $post->created_at }}</p>
       </div>
     @endforeach
-
-   <br><br><br><br><br><br><br><br><br><br><br>
   </main>
 @endsection
