@@ -26,7 +26,7 @@ class CreatePostsTable extends Migration
             $table->string('favorite_artist',200)->nullable(); //好きなアーティスト
             $table->string('genre'); //バンドのジャンル
             $table->string('sex')->nullable(); //性別
-            $table->integer('age')->nullable(); //求める年齢
+            $table->integer('age')->nullable(); //年代
             $table->string('activity_timezone')->nullable(); //活動時間帯
             $table->timestamps();
 
