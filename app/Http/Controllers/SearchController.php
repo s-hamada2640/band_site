@@ -9,8 +9,11 @@ use Illuminate\Http\Request;
 class SearchController extends Controller
 {
     //
-    public function index(Request $request) {
+    public function search(Request $request) {
 
+        $keywords = Post::all();
+
+        return view('search.search', compact('keywords'));
         
     }
 }
