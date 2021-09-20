@@ -20,7 +20,7 @@ class FavoriteController extends Controller
     {
         $post->users()->attach(Auth::id());
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.show', $post->id);
     }
 
     /**
@@ -33,7 +33,7 @@ class FavoriteController extends Controller
     {
         $post->users()->detach(Auth::id());
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.show', $post->id);
     }
     
     //いいねをしてくれた人にいいねを返す
@@ -41,6 +41,6 @@ class FavoriteController extends Controller
     {
         $post->users()->attach($request->user_id);
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.show', $post->id);
     }
 }
