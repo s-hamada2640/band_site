@@ -69,7 +69,7 @@
     <div class="container">
       <div class="row">
         <a href="" class="col d-block"><img class="mx-auto d-block mb-3 mb-lg-0" src="images/member.png" alt="メンバーを探す" width="350"></a>
-        <a href="" class="col d-block"><img class="mx-auto d-block" src="images/article.png" alt="記事から探す" width="350"></a>
+        <a href="{{route('search')}}" class="col d-block"><img class="mx-auto d-block" src="images/article.png" alt="記事から探す" width="350"></a>
       </div>
     </div>
       

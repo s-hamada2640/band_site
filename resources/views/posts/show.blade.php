@@ -82,11 +82,12 @@
       <div style="font-size: 25px;">記事詳細</div>
       <hr>
       <!-- <img src="/images/profileimage.png" alt="プロフィール画像" height="150px" class="mb-3"> -->
+      @foreach($postss as $posts)
       <div>
          <h3 class="mb-3">投稿タイトル：{{ $posts->title }}</h3>
 
       </div>
-      <p class=>投稿者 :  {{ $posts->user->name }}</p>
+      <!-- <p class=>投稿者 : </p> -->
       <p>記事の内容：</p>
       <p>{{ $posts->message }}</p>
       <br>
