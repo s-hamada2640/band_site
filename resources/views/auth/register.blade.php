@@ -67,10 +67,10 @@
 
                         <!-- 活動地域 -->
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-3 col-form-label text-md-right">{{ __('活動地域') }}</label><p class="my-auto text-danger text-center rounded" style="width:16px;">※</p>
+                            <label for="activity_area" class="col-md-3 col-form-label text-md-right">{{ __('活動地域') }}</label><p class="my-auto text-danger text-center rounded" style="width:16px;">※</p>
 
                             <div class="col-md-7">
-                                <input id="password-confirm" type="text" class="form-control" name="activity_area" value="{{ old('activity_area') }}" required autofocus>
+                                <input id="activity_area" type="text" class="form-control" name="activity_area" value="{{ old('activity_area') }}" required autofocus>
                             </div>
                                 @error('activity_area')
                                     <span class="invalid-feedback" role="alert">
@@ -81,10 +81,10 @@
 
                         <!-- 演奏パート -->
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-3 col-form-label text-md-right">{{ __('演奏パート') }}</label><br><p class="my-auto text-danger text-center rounded" style="width:16px;">※</p>
+                            <label for="my_part" class="col-md-3 col-form-label text-md-right">{{ __('演奏パート') }}</label><br><p class="my-auto text-danger text-center rounded" style="width:16px;">※</p>
 
                             <div class="col-md-7">
-                                <input id="password-confirm" type="text" class="form-control" name="my_part" value="{{ old('my_part') }}" required autofocus>
+                                <input id="my_part" type="text" class="form-control" name="my_part" value="{{ old('my_part') }}" required autofocus>
                             </div>
                                 @error('activity_area')
                                     <span class="invalid-feedback" role="alert">
@@ -95,10 +95,10 @@
 
                         <!-- 活動レベル -->
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-3 col-form-label text-md-right">{{ __('活動レベル') }}</label><p class="my-auto text-danger text-center rounded" style="width:16px;">※</p>
+                            <label for="activity_level" class="col-md-3 col-form-label text-md-right">{{ __('活動レベル') }}</label><p class="my-auto text-danger text-center rounded" style="width:16px;">※</p>
 
                             <div class="col-md-7">
-                                <input id="password-confirm" type="text" class="form-control" name="activity_level" value="{{ old('activity_level') }}" required autofocus>
+                                <input id="activity_level" type="text" class="form-control" name="activity_level" value="{{ old('activity_level') }}" required autofocus>
                             </div>
                                 @error('activity_area')
                                     <span class="invalid-feedback" role="alert">
@@ -109,10 +109,10 @@
 
                         <!-- 自分のレベル感 -->
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-3 col-form-label text-md-right">{{ __('自分のレベル感') }}</label><p class="my-auto text-danger text-center rounded" style="width:16px;">※</p>
+                            <label for="my_level" class="col-md-3 col-form-label text-md-right">{{ __('自分のレベル感') }}</label><p class="my-auto text-danger text-center rounded" style="width:16px;">※</p>
 
                             <div class="col-md-7">
-                                <input id="password-confirm" type="text" class="form-control" name="my_level" value="{{ old('my_level') }}" required autofocus>
+                                <input id="my_level" type="text" class="form-control" name="my_level" value="{{ old('my_level') }}" required autofocus>
                             </div>
                                 @error('activity_area')
                                     <span class="invalid-feedback" role="alert">
@@ -123,10 +123,10 @@
 
                         <!-- 演奏ジャンル -->
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-3 col-form-label text-md-right">{{ __('演奏ジャンル') }}</label><p class="my-auto text-danger text-center rounded" style="width:16px;">※</p>
+                            <label for="genre" class="col-md-3 col-form-label text-md-right">{{ __('演奏ジャンル') }}</label><p class="my-auto text-danger text-center rounded" style="width:16px;">※</p>
                             
                             <div class="col-md-7">
-                                <input id="password-confirm" type="text" class="form-control" name="genre" value="{{ old('genre') }}" autofocus>
+                                <input id="genre" type="text" class="form-control" name="genre" value="{{ old('genre') }}" autofocus required>
                             </div>
                                 @error('activity_area')
                                     <span class="invalid-feedback" role="alert">
@@ -137,10 +137,10 @@
                         
                         <!-- 好きなアーティスト -->
                         <div class="form-group row">
-                        <label for="password-confirm" class="col-md-3  col-form-label text-md-right" style="margin-left: 16px;">{{ __('好きなアーティスト') }}</label>
+                        <label for="favorite_artist" class="col-md-3  col-form-label text-md-right" style="margin-left: 16px;">{{ __('好きなアーティスト') }}</label>
 
                             <div class="col-md-7">
-                                <input id="password-confirm" type="text" class="form-control" name="favorite_artist" value="{{ old('favorite_artist') }}" autofocus>
+                                <input id="favorite_artist" type="text" class="form-control" name="favorite_artist" value="{{ old('favorite_artist') }}" autofocus>
                             </div>
                                 @error('activity_area')
                                     <span class="invalid-feedback" role="alert">
@@ -151,10 +151,10 @@
 
                         <!-- 性別 -->
                         <div class="form-group row">
-                            <label for="inlineFormCustomSelect" class="col-md-3 col-form-label text-md-right" style="margin-left: 16px;">{{ __('性別') }}</label>
+                            <label for="sex" class="col-md-3 col-form-label text-md-right" style="margin-left: 16px;">{{ __('性別') }}</label>
 
                             <div class="col-md-7">
-                                <select name="sex" class="form-control" id="exampleFormControlSelect1">
+                                <select name="sex" class="form-control" id="sex">
                                     <option selected>選択</option>
                                     <option value="男性">男性</option>
                                     <option value="女性">女性</option>
@@ -164,19 +164,19 @@
 
                         <!-- 年齢 -->
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-3 col-form-label text-md-right" style="margin-left: 16px;">{{ __('年齢') }}</label>
+                            <label for="age" class="col-md-3 col-form-label text-md-right" style="margin-left: 16px;">{{ __('年齢') }}</label>
 
                             <div class="col-md-7">
-                                <input id="password-confirm" type="number" class="form-control" name="age" value="{{ old('name') }}" autofocus>
+                                <input id="age" type="number" class="form-control" name="age" value="{{ old('age') }}" autofocus>
                             </div>
                         </div>
 
                         <!-- 活動時間帯 -->
                         <div class="form-group row">
-                        <label for="password-confirm" class="col-md-3  col-form-label text-md-right" style="margin-left: 16px;">{{ __('活動時間帯') }}</label>
+                        <label for="activity_timezone" class="col-md-3 col-form-label text-md-right" style="margin-left: 16px;">{{ __('活動時間帯') }}</label>
 
                             <div class="col-md-7">
-                                <input id="password-confirm" type="text" class="form-control" name="activity_timezone" value="{{ old('name') }}" autofocus>
+                                <input id="activity_timezone" type="text" class="form-control" name="activity_timezone" value="{{ old('activity_timezone') }}" autofocus>
                             </div>
                         </div>
 
