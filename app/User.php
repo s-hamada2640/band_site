@@ -15,6 +15,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
+    public function favorites()
+    {
+        return $this->belongsToMany('App\Post')->withTimestamps();
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,7 +27,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password','activity_area','my_part','activity_level',
-        'my_level','genre','favorite_artist','sex','age','activity_timezoon'
+        'my_level','genre','favorite_artist','sex','age','activity_timezone'
     ];
 
     /**
