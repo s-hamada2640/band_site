@@ -41,12 +41,17 @@ class SearchController extends Controller
 
         $id = Auth::id();
         $user = Auth::user();
+        // dd($user);
 
         // $items = DB::table('posts')->whereIn('activity_area',$activity_area)->get();
 
         if (isset($activity_area)) {
             $query->whereIn('activity_area', $activity_area)->get();
+            // dd($query);
         }
+        // }else{
+        //     $query = DB::table('posts')->get();
+        // }
         if (isset($genre)) {
             $query->whereIn('genre', $genre)->get();
         }
@@ -56,23 +61,25 @@ class SearchController extends Controller
         if (isset($activity_level)) {
             $query->whereIn('activity_level', $activity_level)->get();
         }
+        //levelの設定がviewとSeederで異なる
         // if (isset($level)) {
         //     $query->whereIn('level', $level)->get();
         // }
         if (isset($age)) {
-            $query->whereIn('age', $age)->get();
+            $query->whereIn('age', $age)->orderBy('created_at','desc')->get();
         }
         if (isset($sex)) {
-            $query->whereIn('sex', $sex)->get();
+            $query->whereIn('sex', $sex)->orderBy('created_at','desc')->get();
         }
         if (isset($favorite_artist)) {
-            $query->whereIn('favorite_artist', $favorite_artist)->get();
+            $query->where('favorite_artist', $favorite_artist)->orderBy('created_at','desc')->get();
+            // dd($query);
         }
 
-        $postss = $query->get();
+        $postss = $query->orderBy('created_at','desc')->get();
         // dd($postss);
 
-        return view('search.searchresult',compact('postss'));
+        return view('search.searchresult',compact('postss','user'));
 
 
 

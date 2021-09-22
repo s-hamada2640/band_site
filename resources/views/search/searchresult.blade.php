@@ -87,16 +87,19 @@ cursor:pointer;
             <h3 class="mb-3">投稿タイトル：{{ $posts->title }}</h3>
 
         </div> -->
-        <p class=>投稿者 : </p>
+        <!-- <p class=>投稿者 : {{$user->name}}</p> -->
         <h3>最新の記事</h3>
         <hr>
-        <a href="">
+        
+        <p class=>投稿者 : {{$user->name}}</p>
             <h3>投稿タイトル：{{ $posts->title }}</h3>
-        </a>
+    
         <div class="toukou">
-            <p>ユーザー名(地域 年齢)</p>
-            <p>{{ $posts->message }}</p>
-            <p>{{ $posts->created_at }}</p>
+            <p>活動エリア：{{ $posts->activity_area}} </p>
+            <p>年代：{{ $posts->age}}代</p>
+            <p>募集パート：{{$posts->recruitment_part}}</p>
+            <p>メッセージ：{{ $posts->message }}</p>
+            <p>投稿日：{{ $posts->created_at }}</p>
         </div>
         @endforeach
 
