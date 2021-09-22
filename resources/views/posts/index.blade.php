@@ -63,13 +63,10 @@
 
 @section('content')
   <main class="container">
-    <div class="text-right mb-3"><a href="{{route('posts.create')}}"><img src="images/PostAnArticle.png" alt="新規投稿" width="120"></a></div>
-    <img src="images/topimg.jpg" alt="イメージ画像" class="image-vw d-block">
-    <br>
     <div class="container">
       <div class="row">
-        <a href="" class="col d-block"><img class="mx-auto d-block mb-3 mb-lg-0" src="images/member.png" alt="メンバーを探す" width="350"></a>
-        <a href="{{route('search')}}" class="col d-block"><img class="mx-auto d-block" src="images/article.png" alt="記事から探す" width="350"></a>
+        <a href="" class="col d-block"><img class="mx-auto d-block mb-3 mb-lg-0" src="images/member" alt="新規投稿" width="350"　新規投稿></a>
+        <a href="{{route('search')}}" class="col d-block"><img class="mx-auto d-block" src="images/article" alt="投稿記事から探す" width="350"　投稿記事から探す></a>
       </div>
     </div>
       
