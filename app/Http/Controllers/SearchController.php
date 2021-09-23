@@ -20,7 +20,6 @@ class SearchController extends Controller
 
         $query = Post::query();
         // dd($query);
-
         // 活動地域
         $activity_area = $request->input('activity_area');
         // dd($activity_area);
@@ -41,17 +40,10 @@ class SearchController extends Controller
 
         $id = Auth::id();
         $user = Auth::user();
-        // dd($user);
-
-        // $items = DB::table('posts')->whereIn('activity_area',$activity_area)->get();
 
         if (isset($activity_area)) {
             $query->whereIn('activity_area', $activity_area)->get();
-            // dd($query);
         }
-        // }else{
-        //     $query = DB::table('posts')->get();
-        // }
         if (isset($genre)) {
             $query->whereIn('genre', $genre)->get();
         }
@@ -76,23 +68,8 @@ class SearchController extends Controller
             // dd($query);
         }
 
-        $postss = $query->orderBy('created_at','desc')->get();
-        // dd($postss);
+        $posts = $query->orderBy('created_at','desc')->get();
 
-        return view('search.searchresult',compact('postss','user'));
-
-
-
-        // $activity_areaにデータがない
-        // Y：全てのactivity_areaのレコードを抽出 N:$activity_areaと同じレコードを抽出
-        // これを新たな配列$postssに入れる。
-        // $genreにデータがない
-        // Y：全てのgenreのレコードを抽出 N:$genreと同じレコードを抽出
-        // これを配列$postssに入れる
-
-
-        // return view('search.searchresult', compact('postss'));
-
-        
+        return view('search.searchresult',compact('posts','user'));        
     }
 }

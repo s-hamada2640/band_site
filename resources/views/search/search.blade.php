@@ -90,67 +90,66 @@ margin-left: 20px;
 
       <h3><strong>都道府県</strong></h3>
       <input type="checkbox" name="activity_area[]" value="北海道">北海道　
-      <input type="checkbox" name="activity_area[]" value="青森">青森県　
-      <input type="checkbox" name="activity_area[]" value="岩手">岩手県　
-      <input type="checkbox" name="activity_area[]" value="宮城">宮城県　
-      <input type="checkbox" name="activity_area[]" value="秋田">秋田県　
-      <input type="checkbox" name="activity_area[]" value="山形">山形県　
-      <input type="checkbox" name="activity_area[]" value="福島">福島県　
-      <input type="checkbox" name="activity_area[]" value="茨城">茨城県　
-      <input type="checkbox" name="activity_area[]" value="栃木">栃木県　
-      <input type="checkbox" name="activity_area[]" value="群馬">群馬県　
-      <input type="checkbox" name="activity_area[]" value="埼玉">埼玉県　
-      <input type="checkbox" name="activity_area[]" value="千葉">千葉県　
-      <input type="checkbox" name="activity_area[]" value="東京">東京都　
-      <input type="checkbox" name="activity_area[]" value="神奈川">神奈川県　
-      <input type="checkbox" name="activity_area[]" value="新潟">新潟県　
-      <input type="checkbox" name="activity_area[]" value="富山">富山県　
-      <input type="checkbox" name="activity_area[]" value="石川">石川県　
-      <input type="checkbox" name="activity_area[]" value="福井">福井県　
-      <input type="checkbox" name="activity_area[]" value="山梨">山梨県　
-      <input type="checkbox" name="activity_area[]" value="長野">長野県　
-      <input type="checkbox" name="activity_area[]" value="岐阜">岐阜県　
-      <input type="checkbox" name="activity_area[]" value="静岡">静岡県　
-      <input type="checkbox" name="activity_area[]" value="愛知">愛知県　
-      <input type="checkbox" name="activity_area[]" value="三重">三重県　
-      <input type="checkbox" name="activity_area[]" value="滋賀">滋賀県　
-      <input type="checkbox" name="activity_area[]" value="京都">京都府　
-      <input type="checkbox" name="activity_area[]" value="大阪">大阪府　
-      <input type="checkbox" name="activity_area[]" value="兵庫">兵庫県　
-      <input type="checkbox" name="activity_area[]" value="奈良">奈良県　
-      <input type="checkbox" name="activity_area[]" value="和歌山">和歌山県　
-      <input type="checkbox" name="activity_area[]" value="鳥取">鳥取県　
-      <input type="checkbox" name="activity_area[]" value="島根">島根県　
-      <input type="checkbox" name="activity_area[]" value="岡山">岡山県　
-      <input type="checkbox" name="activity_area[]" value="広島">広島県　
-      <input type="checkbox" name="activity_area[]" value="山口">山口県　
-      <input type="checkbox" name="activity_area[]" value="徳島">徳島県　
-      <input type="checkbox" name="activity_area[]" value="香川">香川県　
-      <input type="checkbox" name="activity_area[]" value="愛媛">愛媛県　
-      <input type="checkbox" name="activity_area[]" value="高知">高知県　
-      <input type="checkbox" name="activity_area[]" value="福岡">福岡県　
-      <input type="checkbox" name="activity_area[]" value="佐賀">佐賀県　
-      <input type="checkbox" name="activity_area[]" value="長崎">長崎県　
-      <input type="checkbox" name="activity_area[]" value="熊本">熊本県　
-      <input type="checkbox" name="activity_area[]" value="大分">大分県　
-      <input type="checkbox" name="activity_area[]" value="宮崎">宮崎県　
-      <input type="checkbox" name="activity_area[]" value="鹿児島">鹿児島県　
-      <input type="checkbox" name="activity_area[]" value="沖縄">沖縄県　
+      <input type="checkbox" name="activity_area[]" value="青森県">青森県　
+      <input type="checkbox" name="activity_area[]" value="岩手県">岩手県　
+      <input type="checkbox" name="activity_area[]" value="宮城県">宮城県　
+      <input type="checkbox" name="activity_area[]" value="秋田県">秋田県　
+      <input type="checkbox" name="activity_area[]" value="山形県">山形県　
+      <input type="checkbox" name="activity_area[]" value="福島県">福島県　
+      <input type="checkbox" name="activity_area[]" value="茨城県">茨城県　
+      <input type="checkbox" name="activity_area[]" value="栃木県">栃木県　
+      <input type="checkbox" name="activity_area[]" value="群馬県">群馬県　
+      <input type="checkbox" name="activity_area[]" value="埼玉県">埼玉県　
+      <input type="checkbox" name="activity_area[]" value="千葉県">千葉県　
+      <input type="checkbox" name="activity_area[]" value="東京都">東京都　
+      <input type="checkbox" name="activity_area[]" value="神奈川県">神奈川県　
+      <input type="checkbox" name="activity_area[]" value="新潟県">新潟県　
+      <input type="checkbox" name="activity_area[]" value="富山県">富山県　
+      <input type="checkbox" name="activity_area[]" value="石川県">石川県　
+      <input type="checkbox" name="activity_area[]" value="福井県">福井県　
+      <input type="checkbox" name="activity_area[]" value="山梨県">山梨県　
+      <input type="checkbox" name="activity_area[]" value="長野県">長野県　
+      <input type="checkbox" name="activity_area[]" value="岐阜県">岐阜県　
+      <input type="checkbox" name="activity_area[]" value="静岡県">静岡県　
+      <input type="checkbox" name="activity_area[]" value="愛知県">愛知県　
+      <input type="checkbox" name="activity_area[]" value="三重県">三重県　
+      <input type="checkbox" name="activity_area[]" value="滋賀県">滋賀県　
+      <input type="checkbox" name="activity_area[]" value="京都府">京都府　
+      <input type="checkbox" name="activity_area[]" value="大阪府">大阪府　
+      <input type="checkbox" name="activity_area[]" value="兵庫県">兵庫県　
+      <input type="checkbox" name="activity_area[]" value="奈良県">奈良県　
+      <input type="checkbox" name="activity_area[]" value="和歌山県">和歌山県　
+      <input type="checkbox" name="activity_area[]" value="鳥取県">鳥取県　
+      <input type="checkbox" name="activity_area[]" value="島根県">島根県　
+      <input type="checkbox" name="activity_area[]" value="岡山県">岡山県　
+      <input type="checkbox" name="activity_area[]" value="広島県">広島県　
+      <input type="checkbox" name="activity_area[]" value="山口県">山口県　
+      <input type="checkbox" name="activity_area[]" value="徳島県">徳島県　
+      <input type="checkbox" name="activity_area[]" value="香川県">香川県　
+      <input type="checkbox" name="activity_area[]" value="愛媛県">愛媛県　
+      <input type="checkbox" name="activity_area[]" value="高知県">高知県　
+      <input type="checkbox" name="activity_area[]" value="福岡県">福岡県　
+      <input type="checkbox" name="activity_area[]" value="佐賀県">佐賀県　
+      <input type="checkbox" name="activity_area[]" value="長崎県">長崎県　
+      <input type="checkbox" name="activity_area[]" value="熊本県">熊本県　
+      <input type="checkbox" name="activity_area[]" value="大分県">大分県　
+      <input type="checkbox" name="activity_area[]" value="宮崎県">宮崎県　
+      <input type="checkbox" name="activity_area[]" value="鹿児島県">鹿児島県　
+      <input type="checkbox" name="activity_area[]" value="沖縄県">沖縄県　
     </div>
 
     <hr>
 
     <h3><strong>ジャンル</strong></h3>
 
-    <input type="checkbox" name="genre[]" value="ポップス">ポップス　
-    <input type="checkbox" name="genre[]" value="ロック">ロック　
-    <input type="checkbox" name="genre[]" value="パンク">パンク　
-    <input type="checkbox" name="genre[]" value="メタル">メタル　
-    <input type="checkbox" name="genre[]" value="ジャズ">ジャズ　
-    <input type="checkbox" name="genre[]" value="ブルース">ブルース　
-    <input type="checkbox" name="genre[]" value="ファンク">ファンク　
-    <input type="checkbox" name="genre[]" value="クラシック(オーケストラ)">クラシック(オーケストラ)　
-
+    <input type="checkbox" name="genre[]" value="ポップス">ポップス
+    <input type="checkbox" name="genre[]" value="ロック">ロック
+    <input type="checkbox" name="genre[]" value="パンク">パンク
+    <input type="checkbox" name="genre[]" value="メタル">メタル
+    <input type="checkbox" name="genre[]" value="ジャズ">ジャズ
+    <input type="checkbox" name="genre[]" value="ブルース">ブルース
+    <input type="checkbox" name="genre[]" value="ファンク">ファンク
+    <input type="checkbox" name="genre[]" value="クラシック(オーケストラ)">クラシック(オーケストラ)
 
     <hr>
 
@@ -166,24 +165,17 @@ margin-left: 20px;
 
     <hr>
 
-    <h3><strong>活動レベル</strong></h3>
+    <!-- <h3><strong>活動レベル</strong></h3>
 
     <textarea type="text" name="activity_level" cols="70" rows="5" placeholder="土日の週2回、〇〇駅前のスタジオで練習必須">
-            </textarea>
-
+    </textarea> -->
 
     <hr>
 
     <h3><strong>相手に求めるレベル感</strong></h3>
 
-
-    <input type="checkbox" name="level[]" value="レベル1">レベル1　 　
-    <input type="checkbox" name="level[]" value="レベル2">レベル2　 　
-    <input type="checkbox" name="level[]" value="レベル3">レベル3　 　
-    <input type="checkbox" name="level[]" value="レベル4">レベル4　 　
-    <input type="checkbox" name="level[]" value="レベル5">レベル5　 　
-    <input type="checkbox" name="level[]" value="レベル6">レベル6　 　
-
+    <textarea type="text" name="required_level" cols="70" rows="5" placeholder="〇〇が弾けるレベル、プレイ歴〇年以上、">
+    </textarea>
 
     <hr>
 

@@ -82,24 +82,22 @@ cursor:pointer;
         <div style="font-size: 25px;">検索結果</div>
         <hr>
         <!-- <img src="/images/profileimage.png" alt="プロフィール画像" height="150px" class="mb-3"> -->
-        @foreach($postss as $posts)
+        <h3>最新の記事</h3>
+        @foreach($posts as $post)
         <!-- <div>
-            <h3 class="mb-3">投稿タイトル：{{ $posts->title }}</h3>
 
         </div> -->
-        <!-- <p class=>投稿者 : {{$user->name}}</p> -->
-        <h3>最新の記事</h3>
+
         <hr>
         
         <p class=>投稿者 : {{$user->name}}</p>
-            <h3>投稿タイトル：{{ $posts->title }}</h3>
-    
+            <h3>投稿タイトル：<a href='{{route('posts.show', $post->id)}}'>{{$post->title}}</a></h3>
         <div class="toukou">
-            <p>活動エリア：{{ $posts->activity_area}} </p>
-            <p>年代：{{ $posts->age}}代</p>
-            <p>募集パート：{{$posts->recruitment_part}}</p>
-            <p>メッセージ：{{ $posts->message }}</p>
-            <p>投稿日：{{ $posts->created_at }}</p>
+            <p>活動エリア：{{ $post->activity_area}} </p>
+            <p>年代：{{ $post->age}}代</p>
+            <p>募集パート：{{$post->recruitment_part}}</p>
+            <p>メッセージ：{{ $post->message }}</p>
+            <p>投稿日：{{ $post->created_at }}</p>
         </div>
         @endforeach
 
