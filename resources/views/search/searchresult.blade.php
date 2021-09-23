@@ -99,16 +99,9 @@ cursor:pointer;
             <p>メッセージ：{{ $post->message }}</p>
             <p>投稿日：{{ $post->created_at }}</p>
         </div>
+
         @endforeach
 
-        <form action="">
-            <button type="submit" class="good">いいね</button>
-            <span class="ml-2 border-left-0" style="line-height: 20px; font-size: 14px;"></span>
-        </form>
-        <form action="">
-            <button type="submit" class="goodyet">いいね</button>
-            <span class="ml-2 border-left-0" style="line-height: 20px; font-size: 14px;"></span>
-        </form>
         <br>
         <br>
     </div>
