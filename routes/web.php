@@ -36,3 +36,4 @@ Route::get('search', 'SearchController@search')->name('search');
 Route::get('show', 'SearchController@search')->name('show');
 Route::get('searchresult', 'SearchController@searchresult');
 Route::post('searchresult','SearchController@searchresult')->name('searchresult');
+Route::post('users/show/{user}', 'UserController@show')->name('users.show');
