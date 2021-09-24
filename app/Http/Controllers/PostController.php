@@ -20,7 +20,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        // $posts = Post::all();
+        $posts = Post::orderBy('created_at','desc')->get();
+        // dd($posts);
+        // $posts->orderBy('created_at','desc');
+        //         dd($posts);
+
 
         return view('posts.index', compact('posts'));
     }
