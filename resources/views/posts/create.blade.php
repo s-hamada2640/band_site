@@ -337,10 +337,10 @@
                </div>
                <div class="custom-control custom-radio custom-control-inline">
                   <input type="radio" id="70" name="age" class="custom-control-input align-middle" value="70">
-                  <label id="radio" class="custom-control-label my-auto" for="70">70代</label>
+                  <label id="radio" class="custom-control-label my-auto" for="70">70代以上</label>
                </div>
                <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="null" name="age" class="custom-control-input align-middle" value="NULL" checked>
+                  <input type="radio" id="null" name="age" class="custom-control-input align-middle" value='' checked>
                   <label id="radio" class="custom-control-label my-auto" for="null">気にしない</label>
                </div>
             </div>
