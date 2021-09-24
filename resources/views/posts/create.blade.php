@@ -54,7 +54,7 @@
             </div>
             <h4 class="mb-4" style="margin-left:100px;">[基本データ]</h4>
             <div class=" form-group row">
-               <lavel for="activity_area" class="col-3 col-form-label text-md-right"><h5><span class="text-danger">※</span> 活動地域：</h5></lavel>
+               <label for="activity_area" class="col-3 col-form-label text-md-right"><h5><span class="text-danger">※</span> 活動地域：</h5></label>
                <div class="col-9">
                   <!-- 北海道 1-->
                   <div class="custom-control custom-radio custom-control-inline">
