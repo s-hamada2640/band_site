@@ -105,7 +105,11 @@
             <p>[募集パート] : {{ $post->recruitment_part }}</p>
             <p>[求めるレベル感] : {{ $post->required_level }}</p>
             <p>[性別] : {{ $post->sex }} </p>
-            <p>[年齢] : {{ $post->age }}代</p>
+            @if($post->age == null)
+               <p>[年齢] : 気にしない</p>
+            @else
+               <p>[年齢] : {{ $post->age }}代</p>
+            @endif
          </div>
       </div>
       <div class="RightJustified mb-3">

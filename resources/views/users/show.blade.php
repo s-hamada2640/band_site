@@ -57,18 +57,38 @@
       cursor:pointer;
       font-size: 12px;
    }
-   
+   .nav-list{
+      font-size: 14px;
+   }
 @endsection
 @section('content')
 
 <div class="container">
-   <div class="w-75 mx-auto">
-      @if(Auth::id() == $user->id)
-         <h4 class="mt-4">マイページ</h4>
+   @if(Auth::id() == $user->id)
+      <div class="w-75 mx-auto">
+         <h4 class="my-4">マイページ</h4>
+         <ul class="nav nav-tabs">
+         <li class="nav-item nav-list">
+            <a class="nav-link active" href="#">プロフィール</a>
+         </li>
+         <li class="nav-item nav-list">
+            <form action="{{ route('users.myposts', Auth::id()) }}" method="post">
+               @csrf
+               <input class="nav-link btn-link" type="submit" value="投稿リスト" style="background-color:#F7FAFC; border-bottom: 1px solid #DEE2E6;">
+            </form>
+         </li>
+         <li class="nav-item nav-list">
+            <form action="{{ route('users.liked', Auth::id()) }}" method="post">
+               @csrf
+               <input class="nav-link btn-link" type="submit" value="いいねした記事" style="background-color:#F7FAFC; border-bottom: 1px solid #DEE2E6;">
+            </form>
+         </li>
+         </ul>
+      
       @else
          <h4 class="mt-4">{{ $user->name }}さんのプロフィール</h4>
       @endif
-      <hr>
+
       <div class="w-75 my-5 ml-3">
          <table class="mx-auto">
             <tr><th>ユーザー名：</th><td>{{ $user->name }}</td></tr>
