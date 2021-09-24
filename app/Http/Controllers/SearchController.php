@@ -53,10 +53,6 @@ class SearchController extends Controller
         if (isset($activity_level)) {
             $query->whereIn('activity_level', $activity_level)->get();
         }
-        //levelの設定がviewとSeederで異なる
-        // if (isset($level)) {
-        //     $query->whereIn('level', $level)->get();
-        // }
         if (isset($age)) {
             $query->whereIn('age', $age)->orderBy('created_at','desc')->get();
         }
@@ -68,7 +64,7 @@ class SearchController extends Controller
             // dd($query);
         }
 
-        $posts = $query->orderBy('created_at','desc')->get();
+        $posts = $query->orderBy('created_at','desc')->paginate(15);
 
         return view('search.searchresult',compact('posts','user'));        
     }

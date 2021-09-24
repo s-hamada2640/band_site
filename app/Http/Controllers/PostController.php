@@ -21,7 +21,7 @@ class PostController extends Controller
     public function index()
     {
         // $posts = Post::all();
-        $posts = Post::orderBy('created_at','desc')->get();
+        $posts = Post::orderBy('created_at','desc')->paginate(15);
         // dd($posts);
         // $posts->orderBy('created_at','desc');
         //         dd($posts);
@@ -123,6 +123,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post -> delete();
+
+        return redirect('posts.index');
     }
 }

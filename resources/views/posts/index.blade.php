@@ -89,5 +89,6 @@
           <p>投稿日{{ $post->created_at }}</p>
       </div>
     @endforeach
+    {{$posts->links()}}
   </main>
 @endsection

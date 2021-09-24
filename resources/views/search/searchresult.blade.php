@@ -102,6 +102,10 @@ cursor:pointer;
 
         @endforeach
 
+        {{$posts -> links()}}
+
+
+
         <br>
         <br>
     </div>
