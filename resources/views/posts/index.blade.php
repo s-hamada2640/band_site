@@ -62,7 +62,7 @@
 @endsection
 
 @section('content')
-  <main class="container">
+  <!-- <class="container"> -->
     <img src="images/topimg.jpg" alt="イメージ画像" class="image-vw d-block">
     <br>
     <div class="container">

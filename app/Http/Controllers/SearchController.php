@@ -61,7 +61,6 @@ class SearchController extends Controller
         }
         if (isset($favorite_artist)) {
             $query->where('favorite_artist', $favorite_artist)->orderBy('created_at','desc')->get();
-            // dd($query);
         }
 
         $posts = $query->orderBy('created_at','desc')->paginate(15);
