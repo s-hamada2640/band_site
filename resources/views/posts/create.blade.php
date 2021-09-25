@@ -277,7 +277,14 @@
             <div class="form-group row mb-3">
                <lavel for="genre" class="col-3 col-form-label text-md-right"><h5><span class="text-danger">※</span> ジャンル：</h5></lavel>
                <div class="col-8">
-                  <input type="text" class="form-control @error('genre') is-invalid @enderror" name="genre" value="{{ old('genre') }}" required autocomplete="genre" autofocus>
+                  <input type="checkbox" name="genre" value="ポップス">ポップス
+                  <input type="checkbox" name="genre" value="ロック">ロック
+                  <input type="checkbox" name="genre" value="パンク">パンク
+                  <input type="checkbox" name="genre" value="メタル">メタル
+                  <input type="checkbox" name="genre" value="ジャズ">ジャズ
+                  <input type="checkbox" name="genre" value="ブルース">ブルース
+                  <input type="checkbox" name="genre" value="ファンク">ファンク
+                  <input type="checkbox" name="genre" value="クラシック(オーケストラ)">クラシック(オーケストラ)
                </div>
             </div>
             <div class="form-group row mb-3">
@@ -310,7 +317,7 @@
                   </div>
             </div>
             <div class="form-group row mb-2">
-               <lavel for="age" class="col-3 col-form-label text-md-right"><h6>[年齢]</h6></lavel>
+               <label for="age" class="col-3 col-form-label text-md-right"><h6>[年齢]</h6></label>
                <div class="custom-control custom-radio custom-control-inline ml-3">
                   <input type="radio" id="10" name="age" class="custom-control-input align-middle" value="10">
                   <label id="radio" class="custom-control-label my-auto" for="10">10代</label>
@@ -345,9 +352,14 @@
                </div>
             </div>
             <div class="form-group row mb-2">
-               <lavel for="recruitment_part" class="col-3 col-form-label text-md-right"><h6><span class="text-danger">※</span> [募集パート]</h6></lavel>
+               <label for="recruitment_part" class="col-3 col-form-label text-md-right"><h6><span class="text-danger">※</span> [募集パート]</h6></label>
                <div class="col-8">
-                  <input type="text" class="form-control @error('recruitment_part') is-invalid @enderror" name="recruitment_part" value="{{ old('recruitment_part') }}" required autocomplete="recruitment_part" autofocus>
+                  <input type="checkbox" name="recruitment_part" value="ボーカル">ボーカル　
+                  <input type="checkbox" name="recruitment_part" value="ギター">ギター　
+                  <input type="checkbox" name="recruitment_part" value="ベース">ベース　
+                  <input type="checkbox" name="recruitment_part" value="ドラム">ドラム　
+                  <input type="checkbox" name="recruitment_part" value="キーボード">キーボード　
+                  <input type="checkbox" name="recruitment_part" value="管楽器">管楽器
                </div>
             </div>
             <div class="form-group row mb-2">
