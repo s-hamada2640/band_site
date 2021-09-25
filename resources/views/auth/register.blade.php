@@ -1,35 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@s-hamada2640 
-s-hamada2640
-/
-band_site
-Public
-1
-12
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-band_site/resources/views/auth/register.blade.php
-@morikawa0170
-morikawa0170 ユーザー登録機能修正
-Latest commit 5b3e5b8 4 days ago
- History
- 2 contributors
-@morikawa0170@oohamaka
-196 lines (164 sloc)  11.1 KB
-   
 @extends('layouts.app')
 
 @section('content')
