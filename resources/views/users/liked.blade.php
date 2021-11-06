@@ -68,24 +68,33 @@
       </li>
       </ul>
    </div>
-      <div class="w-75 mx-auto">
-         <div class=" my-5">
-            @foreach($liked_posts as $post)
-               <div class="toukou ml-3 w-75 mx-auto">
-                     <!-- タイトル -->
-                  <h5><a href="{{route('posts.show', $post->id)}}">{{ $post->title }}</a></h5>
-                     <!--ユーザー名、年齢/性別-->
-                  <p>{{ $post->user->name }}({{ $post->user->age }}/{{$post->user->sex}})</p>
-                     <!-- メッセージ -->
-                  <p>{{ Str::limit($post->message,"50")}}</p>
-                  <!-- 投稿日時 -->
-                  <p>投稿日{{ $post->created_at }}</p>
-                  <p class="d-flex flex-row-reverse">いいね数 {{ $post->users->unique()->count() }}</p>
-                  <hr>
-               </div>
-            @endforeach
+      @if(isset($not_liked))
+         <div class="w-75 mx-auto">
+            <p class="text-center mt-5 text-secondary" >{{ $not_liked }}</p>
+            <div class=" mt-5">
+               <a href="{{ route('posts.index') }}" class="mt-0">記事一覧ページに戻る</a>
+            </div>
+         </div>   
+      @else
+         <div class="w-75 mx-auto">
+            <div class=" my-5">
+               @foreach($liked_posts as $post)
+                  <div class="toukou ml-3 w-75 mx-auto">
+                        <!-- タイトル -->
+                     <h5><a href="{{route('posts.show', $post->id)}}">{{ $post->title }}</a></h5>
+                        <!--ユーザー名、年齢/性別-->
+                     <p>{{ $post->user->name }}({{ $post->user->age }}/{{$post->user->sex}})</p>
+                        <!-- メッセージ -->
+                     <p>{{ Str::limit($post->message,"50")}}</p>
+                     <!-- 投稿日時 -->
+                     <p>投稿日{{ $post->created_at }}</p>
+                     <p class="d-flex flex-row-reverse">いいね数 {{ $post->users->unique()->count() }}</p>
+                     <hr>
+                  </div>
+               @endforeach
+            </div>
+            <a href="{{ route('posts.index') }}">記事一覧ページに戻る</a>
          </div>
-         <a href="{{ route('posts.index') }}">記事一覧ページに戻る</a>
-      </div>
+      @endif
 </div>
 @endsection

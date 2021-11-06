@@ -59,16 +59,24 @@ class UserController extends Controller
 
         $liked = DB::table('post_user')->where('user_id', Auth::id())->get();
 
-        foreach($liked as $like){
-            $likes[] = $like->post_id;
-        }
-        $likes[] = array_unique($likes);
-        // print_r($likes);
-        for($i=0; $i < count($likes); $i++)
-        {
-            $liked_posts = Post::find($likes[$i]);
-        }
+        if($liked->count() == 0){
+            $not_liked = "いいねした記事はありません";
+            return view('users.liked', compact('not_liked'));
 
-        return view('users.liked',compact('liked_posts'));
+        }else{
+
+            foreach($liked as $like){
+                $likes[] = $like->post_id;
+            }
+    
+            $likes[] = array_unique($likes);
+            // print_r($likes);
+            for($i=0; $i < count($likes); $i++)
+            {
+                $liked_posts = Post::find($likes[$i]);
+            }
+    
+            return view('users.liked',compact('liked_posts'));
+        }
     }
 }

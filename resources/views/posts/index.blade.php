@@ -36,7 +36,7 @@
     }
 
     .image-vw{
-      width: 70vw;
+      width: 100%;
       padding: 5px;
       margin: 0 auto;
     }

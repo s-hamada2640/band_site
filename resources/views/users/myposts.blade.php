@@ -70,6 +70,9 @@
    </div>
       <div class="w-75 mx-auto">
          <div class=" my-5">
+            @if($myposts->count() == 0)
+               <p class="text-center mt-5 text-secondary" >投稿した記事はありません</p>
+            @endif
             @foreach($myposts as $post)
                <div class="toukou ml-3 w-75 mx-auto">
                      <!-- タイトル -->
