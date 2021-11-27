@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Post;
+use App\LikeUser;
 use Auth;
 
 class UserController extends Controller
@@ -47,6 +48,7 @@ class UserController extends Controller
         //
     }
 
+    //自分の投稿を表示
     public function myposts()
     {
         $myposts = Post::where('user_id', Auth::id())->orderBy('created_at','desc')->get();
@@ -54,6 +56,7 @@ class UserController extends Controller
         return view('users.myposts', compact('myposts'));
     }
 
+    //いいねした人リスト
     public function liked()
     {
 
@@ -78,5 +81,32 @@ class UserController extends Controller
     
             return view('users.liked',compact('liked_posts'));
         }
+    }
+
+    //ユーザプロフィール詳細
+    public function profile(Request $reuqest, User $user)
+    {
+        $post = Post::find($reuqest->id);
+        $likeusers = LikeUser::where([
+                ['from_userid', Auth::id()],
+                ['to_userid',$user->id]
+            ])->first();
+        return view('users.profile',compact('user','post','likeusers'));
+    }
+
+    //フォロー中ユーザを表示
+    public function followed()
+    {
+        $followed = LikeUser::where('from_userid',Auth::id())->get();
+        
+        return view('users.followed',compact('followed'));
+    }
+
+    //フォロワーを表示
+    public function follower()
+    {
+        $follower = LikeUser::where('to_userid',Auth::id())->get();
+
+        return view('users.follower',compact('follower'));
     }
 }

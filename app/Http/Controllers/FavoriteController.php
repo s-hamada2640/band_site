@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\User;
+use App\LikeUser;
 use Auth;
 
 class FavoriteController extends Controller
@@ -42,5 +43,27 @@ class FavoriteController extends Controller
         $post->users()->attach($request->user_id);
 
         return redirect()->route('posts.show', $post->id);
+    }
+
+    //フォロー機能
+    public function follow(User $user)
+    {
+        $follow = new LikeUser();
+        $follow->to_userid = $user->id;
+        $follow->from_userid = Auth::id();
+        $follow->save();
+
+        return redirect()->route('users.profile',$user);
+    }
+
+    //フォロー解除機能
+    public function unfollow(User $user)
+    {
+        $unfollow = LikeUser::where([
+                ['to_userid',$user->id],
+                ['from_userid',Auth::id()]
+                ])->delete();
+
+        return redirect()->route('users.profile',$user->id);
     }
 }
