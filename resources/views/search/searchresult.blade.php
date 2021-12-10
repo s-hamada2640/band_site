@@ -83,7 +83,7 @@ cursor:pointer;
         <hr>
         <!-- <img src="/images/profileimage.png" alt="プロフィール画像" height="150px" class="mb-3"> -->
         <h3>最新の記事</h3>
-        @foreach($posts as $post)
+        @foreach($posts ?? '' as $post)
         <!-- <div>
 
         </div> -->
@@ -102,7 +102,7 @@ cursor:pointer;
 
         @endforeach
 
-        {{$posts -> links()}}
+        {{$posts ?? '' -> links()}}
 
 
 

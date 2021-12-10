@@ -65,12 +65,22 @@ margin-left: 20px;
 
 @section('content')
 <main class="container">
+  <h2>キーワードで探す</h2>
+  <hr>
+  <form method="post" action="{{ route('searchresult') }}">
+    @csrf
+    <div class="search-keyword">
+      <input type="text" name="keyword[]" placeholder="検索…">
+      <button type='submit'>キーワード検索</button>
+    </div>
+  </form>
+  
+  <hr>
+
   <h2>条件を絞って探す</h2>
   <hr>
   <form method="post" action="{{route('searchresult')}}">
     @csrf
-    <button type='submit'><img src="images/search.png" alt="検索" height="25px"></button>
-    <img src="../images/search.png" alt="ユーザー検索">
     <br>
     <br>
 
@@ -80,8 +90,6 @@ margin-left: 20px;
         <br>
       </div>
       <div>
-        <button type='submit'><img src="images/search.png" alt="検索" height="25px"></button>
-
         <input type="checkbox" name="member[]" value="バンドメンバー募集">バンドメンバー募集　　　
         <input type="checkbox" name="member[]" value="加入希望">加入希望　
       </div>
@@ -210,5 +218,7 @@ margin-left: 20px;
 
     <div style="text-align: center">
       <button type='submit'><img src="images/search.png" alt="検索" height="25px"></button>
+    </div>
+
   </form>
   @endsection
