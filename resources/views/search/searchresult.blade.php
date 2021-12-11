@@ -89,9 +89,9 @@ cursor:pointer;
         </div> -->
 
         <hr>
-        
+
         <p class=>投稿者 : {{$user->name}}</p>
-            <h3>投稿タイトル：<a href='{{route('posts.show', $post->id)}}'>{{$post->title}}</a></h3>
+        <h3>投稿タイトル：<a href='{{route('posts.show', $post->id)}}'>{{$post->title}}</a></h3>
         <div class="toukou">
             <p>活動エリア：{{ $post->activity_area}} </p>
             <p>年代：{{ $post->age}}代</p>

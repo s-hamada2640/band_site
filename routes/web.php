@@ -37,6 +37,12 @@ Route::get('show', 'SearchController@search')->name('show');
 Route::get('searchresult', 'SearchController@searchresult');
 Route::post('searchresult','SearchController@searchresult')->name('searchresult');
 Route::post('users/show/{user}', 'UserController@show')->name('users.show');
-// Route::post('post.destroy/{id}', 'PostController@destroy');
 Route::Post('users/{id}/myposts', 'UserController@myposts')->name('users.myposts');
+<<<<<<< HEAD
 Route::Post('users/{id}/liked','UserController@liked')->name('users.liked');
+=======
+Route::Post('users/{id}/liked','UserController@liked')->name('users.liked');
+
+Route::Post('destroy/{id}', 'PostController@destroy')->name('destroy');
+
+>>>>>>> 2d459f7b52d4a813b43c3ee19baf98bbede97efb

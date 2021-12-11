@@ -73,6 +73,7 @@ class SearchController extends Controller
         $id = Auth::id();
         $user = Auth::user();
 
+<<<<<<< HEAD
         // if (isset($activity_area)) {
         //     $query->whereIn('activity_area', $activity_area)->get();
         // }
@@ -99,5 +100,32 @@ class SearchController extends Controller
         $posts = $query->orderBy('created_at', 'desc')->paginate(15);
 
         return view('search.searchresult', compact('posts', 'user', 'item'));
+=======
+        if (isset($activity_area)) {
+            $query->whereIn('activity_area', $activity_area)->get();
+        }
+        if (isset($genre)) {
+            $query->whereIn('genre', $genre)->get();
+        }
+        if (isset($recruitment_part)) {
+            $query->whereIn('recruitment_part', $recruitment_part)->get();
+        }
+        if (isset($activity_level)) {
+            $query->whereIn('activity_level', $activity_level)->get();
+        }
+        if (isset($age)) {
+            $query->whereIn('age', $age)->orderBy('created_at','desc')->get();
+        }
+        if (isset($sex)) {
+            $query->whereIn('sex', $sex)->orderBy('created_at','desc')->get();
+        }
+        if (isset($favorite_artist)) {
+            $query->where('favorite_artist', $favorite_artist)->orderBy('created_at','desc')->get();
+        }
+
+        $posts = $query->orderBy('created_at','desc')->paginate(15);
+
+        return view('search.searchresult',compact('posts','user'));        
+>>>>>>> 2d459f7b52d4a813b43c3ee19baf98bbede97efb
     }
 }
