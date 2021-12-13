@@ -52,7 +52,10 @@
       <h4 class="my-4">マイページ</h4>
       <ul class="nav nav-tabs">
          <li class="nav-item nav-list">
-            <a class="nav-link" href="#">プロフィール</a>
+            <form action="{{ route('users.show', Auth::id()) }}" method="post">
+               @csrf
+               <input class="nav-link btn-link" type="submit" value="プロフィール" style="background-color:#F7FAFC; border-bottom: 1px solid #DEE2E6;">
+            </form>
          </li>
          <li class="nav-item nav-list">
             <form action="{{ route('users.myposts', Auth::id()) }}" method="post">
