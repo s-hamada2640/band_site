@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//マッチング
 Route::post('posts/{post}/favorites', 'FavoriteController@store')->name('favorites');
 Route::post('posts/{post}/unfavorites', 'FavoriteController@destroy')->name('unfavorites');
 Route::post('posts/{post}/matching', 'FavoriteController@matching')->name('matching');
@@ -41,9 +42,14 @@ Route::Post('users/{id}/myposts', 'UserController@myposts')->name('users.myposts
 Route::Post('users/{id}/liked','UserController@liked')->name('users.liked');
 Route::post('users/{user}/followed','UserController@followed')->name('users.followed');
 Route::post('users/{user}/follower','UserController@follower')->name('users.follower');
-
 Route::get('users/{user}/profile', 'UserController@profile')->name('users.profile');
 
 //フォロー機能
 Route::post('users/{user}/follow','FavoriteController@follow')->name('follow');
 Route::post('users/{user}/unfollow','FavoriteController@unfollow')->name('unfollow');
+
+//チャット機能
+Route::post('chats/{id}/show','ChatController@show')->name('chats.showPost');
+Route::post('chats','ChatController@store')->name('chats.store');
+Route::get('chats','ChatController@index')->name('chats.index');
+// Route::resource('chats','ChatController');

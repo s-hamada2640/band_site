@@ -13,6 +13,6 @@ class Chat extends Model
 
     public function chatroom()
     {
-        return $this->belongsTo('App\Chatroom')
+        return $this->belongsTo('App\Chatroom');
     }
 }
