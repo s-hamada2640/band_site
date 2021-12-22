@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Chat;
 use App\Chatroom;
+use App\User;
 use Auth;
 
 class ChatController extends Controller
@@ -47,7 +48,7 @@ class ChatController extends Controller
         $chat->message = $request->message;
         $chat->save();
 
-        return redirect()->route('chats.index');
+        return redirect()->route('chats.show',$request->chatroom_id);
     }
 
     /**
@@ -58,7 +59,9 @@ class ChatController extends Controller
      */
     public function show($id)
     {
-        return view('chats.show');
+        $chats = Chat::where('chatroom_id',$id)->get();
+
+        return view('chats.show',compact('chats'));
     }
 
     /**
@@ -93,5 +96,12 @@ class ChatController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function json(User $user, $id)
+    {
+        $user = Chat::where('user_id',$id)->get();
+
+        return $user->toJson();
     }
 }

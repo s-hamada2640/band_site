@@ -83,6 +83,7 @@
       <div style="font-size: 25px;">チャット</div>
       <hr>
       <div class="mx-auto w-50">
+         <div id="chat" class=""></div>
          <form action="{{ route('chats.store') }}" method="post">
             @csrf
             <input type="submit" value='投稿'>
@@ -93,10 +94,55 @@
       <div class="article mb-4"></div>
       <hr>
       <a href="{{ route('posts.index') }}">記事一覧へ戻る</a>
-      
-      <div class="container w-75">
-         
-      </div>
    </div>
 </main>
+<script>
+function recvAJAX() {
+      @foreach($chats as $chat)
+         var ajax = new XMLHttpRequest();
+         ajax.open("get", "/chats/{{ $chat->chatroom_id }}/json");
+         ajax.responseType = "json";
+         ajax.send(); // 通信させます。
+         ajax.addEventListener("load", function(){ // loadイベントを登録します。
+            var chat = document.getElementById("chat");
+            var json = this.response;
+            chat.innerHTML = "";
+            for(var i = 0; i < json.length; i++) {
+               var str = json[i].created_at;
+               var replace = str.replace('T',' ');
+               var created_at = replace.substr(0,19);
+               var msg = json[i].message;
+               var id = json[i].id;
+               var form = '<form action="/comments/'+id+'/delete" method="post">'
+                           +"<input type='submit' class='btn btn-link' value='削除' onClick='return delCheck()'>"
+                           +"<input type='hidden' name='id' value='"+ id +"'>"
+                           +"<input type='hidden' name='playlist_id' value="+ "{{ $chat->id }}" +">"
+                           +"<input type='hidden' name='_token' value='{{ csrf_token() }}'>"
+                           +"</form>";
+               var myPost= "<div class='card mb-2 mt-3 w-75 mx-auto'>" 
+                                 +"<div class='card-body pl-5 pb-1 d-flex bd-highlight'>" 
+                                    +'<p class="mr-auto p-1 bd-highlight">'+msg +'</p>'
+                                    +'<p class="p-1 bd-highlight">'+ name +' /</p>'
+                                    +'<p class="text-muted p-1 bd-highlight">'+ created_at +'</p>'
+                                    +form
+                                 +"</div>"
+                              +"</div>";
+               var otherPost = "<div class='card mb-2 mt-3 w-75 mx-auto'>" 
+                                 +"<div class='card-body pl-5 pb-1 d-flex bd-highlight'>" 
+                                    +'<p class="mr-auto p-1 bd-highlight">'+msg +'</p>'
+                                    +'<p class="p-1 bd-highlight">'+ name +' /</p>'
+                                    +'<p class="text-muted p-1 bd-highlight">'+ created_at +'</p>'
+                                 +"</div>"
+                              +"</div>";         
+               if ("{{ Auth::user()->name }}" == name){
+                  chat.innerHTML += myPost;
+               }else{
+                  chat.innerHTML += otherPost;
+               }
+            }
+         }, false);
+      @endforeach
+      }
+      var handle = setInterval(recvAJAX,200);
+</script>
 @endsection

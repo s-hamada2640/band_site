@@ -49,7 +49,8 @@ Route::post('users/{user}/follow','FavoriteController@follow')->name('follow');
 Route::post('users/{user}/unfollow','FavoriteController@unfollow')->name('unfollow');
 
 //チャット機能
-Route::post('chats/{id}/show','ChatController@show')->name('chats.showPost');
+Route::get('chats/{id}/show','ChatController@show')->name('chats.show');
 Route::post('chats','ChatController@store')->name('chats.store');
 Route::get('chats','ChatController@index')->name('chats.index');
+Route::get('chats/{id}/json','ChatController@json')->name('chats.json');
 // Route::resource('chats','ChatController');

@@ -19,8 +19,8 @@ class CreateLikeUserTable extends Migration
             $table->unsignedBigInteger('from_userid'); //いいねしたユーザー
             $table->timestamps();
 
-            $table->foreign('to_userid')->references('id')->on('users');
-            $table->foreign('from_userid')->references('id')->on('users');
+            $table->foreign('to_userid')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('from_userid')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
