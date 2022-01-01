@@ -83,15 +83,15 @@ cursor:pointer;
         <hr>
         <!-- <img src="/images/profileimage.png" alt="プロフィール画像" height="150px" class="mb-3"> -->
         <h3>最新の記事</h3>
-        @foreach($posts as $post)
+        @foreach($posts ?? '' as $post)
         <!-- <div>
 
         </div> -->
 
         <hr>
-        
+
         <p class=>投稿者 : {{$user->name}}</p>
-            <h3>投稿タイトル：<a href='{{route('posts.show', $post->id)}}'>{{$post->title}}</a></h3>
+        <h3>投稿タイトル：<a href='{{route('posts.show', $post->id)}}'>{{$post->title}}</a></h3>
         <div class="toukou">
             <p>活動エリア：{{ $post->activity_area}} </p>
             <p>年代：{{ $post->age}}代</p>
@@ -102,7 +102,7 @@ cursor:pointer;
 
         @endforeach
 
-        {{$posts -> links()}}
+        {{$posts ?? '' -> links()}}
 
 
 

@@ -28,15 +28,20 @@ Route::post('posts/{post}/favorites', 'FavoriteController@store')->name('favorit
 Route::post('posts/{post}/unfavorites', 'FavoriteController@destroy')->name('unfavorites');
 Route::post('posts/{post}/matching', 'FavoriteController@matching')->name('matching');
 
-// Route::get('search', function () {
-//     return view('search.search');
-// });
+Route::get('search', function () {
+    return view('search.search');
+});
 Route::get('search', 'SearchController@search')->name('search');
 
 Route::get('show', 'SearchController@search')->name('show');
 Route::get('searchresult', 'SearchController@searchresult');
 Route::post('searchresult','SearchController@searchresult')->name('searchresult');
 Route::post('users/show/{user}', 'UserController@show')->name('users.show');
-// Route::post('post.destroy/{id}', 'PostController@destroy');
 Route::Post('users/{id}/myposts', 'UserController@myposts')->name('users.myposts');
+
 Route::Post('users/{id}/liked','UserController@liked')->name('users.liked');
+
+Route::Post('users/{id}/liked','UserController@liked')->name('users.liked');
+
+Route::Post('destroy/{id}', 'PostController@destroy')->name('destroy');
+
