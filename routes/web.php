@@ -38,10 +38,14 @@ Route::get('searchresult', 'SearchController@searchresult');
 Route::post('searchresult','SearchController@searchresult')->name('searchresult');
 Route::post('users/show/{user}', 'UserController@show')->name('users.show');
 Route::Post('users/{id}/myposts', 'UserController@myposts')->name('users.myposts');
-
-Route::Post('users/{id}/liked','UserController@liked')->name('users.liked');
+Route::post('users/{user}/followed','UserController@followed')->name('users.followed');
+Route::post('users/{user}/follower','UserController@follower')->name('users.follower');
+Route::get('users/{user}/profile', 'UserController@profile')->name('users.profile');
 
 Route::Post('users/{id}/liked','UserController@liked')->name('users.liked');
 
 Route::Post('destroy/{id}', 'PostController@destroy')->name('destroy');
 
+//フォロー機能
+Route::post('users/{user}/follow','FavoriteController@follow')->name('follow');
+Route::post('users/{user}/unfollow','FavoriteController@unfollow')->name('unfollow');

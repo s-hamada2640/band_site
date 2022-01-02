@@ -1,0 +1,124 @@
+@extends('layouts.app')
+
+@section('css')
+
+   h1{
+      width: 350px;
+      padding-left: 5px;
+      margin-left: 20px;
+      float: left;
+   }
+
+   .header-right{
+      padding-top: 20px;
+      margin-right: 20px;
+      float: right;
+   }
+   main{
+      margin-left: 20px;
+   }
+
+   .image-cng{
+      padding-right: 15px
+   }
+
+   td,th{
+      width: 200px;
+      font-size: 16px;
+   }
+
+   th{
+      text-align: right;
+      height: 30px;
+   }
+
+   td{
+      text-align: left;
+   }
+
+   .nav-list{
+      font-size: 14px;
+   }
+   .follow {
+      background-color: #fff;
+      height: 20px;
+      width: 80px;
+      color: rgb(0, 199, 221);
+      font-weight: bold;
+      border: 1px solid rgb(0, 199, 221);
+      cursor:pointer;
+      font-size: 12px;
+   }
+   .unfollow {
+      background-color: rgb(0, 199, 221);
+      height: 20px;
+      width: 80px;
+      color: #fff;
+      font-weight: bold;
+      border: 1px solid rgb(0, 199, 221);
+      cursor:pointer;
+      font-size: 12px;
+   }
+@endsection
+@section('content')
+
+<div class="container">
+   @if(Auth::id() == $user->id)
+      <div class="w-75 mx-auto">
+         <h4 class="my-4">マイページ</h4>
+         <ul class="nav nav-tabs">
+         <li class="nav-item nav-list">
+            <a class="nav-link active" href="#">プロフィール</a>
+         </li>
+         <li class="nav-item nav-list">
+            <form action="{{ route('users.myposts', Auth::id()) }}" method="post">
+               @csrf
+               <input class="nav-link btn-link" type="submit" value="投稿リスト" style="background-color:#F7FAFC; border-bottom: 1px solid #DEE2E6;">
+            </form>
+         </li>
+         <li class="nav-item nav-list">
+            <form action="{{ route('users.liked', Auth::id()) }}" method="post">
+               @csrf
+               <input class="nav-link btn-link" type="submit" value="いいねした記事" style="background-color:#F7FAFC; border-bottom: 1px solid #DEE2E6;">
+            </form>
+         </li>
+         </ul>
+      
+      @else
+         <h4 class="mt-4">{{ $user->name }}さんのプロフィール</h4>
+      @endif
+
+      <div class="w-75 my-5 ml-3">
+         <table class="mx-auto">
+            <tr><th>ユーザー名：</th><td>{{ $user->name }}</td></tr>
+            <tr><th>活動地域：</th><td>{{ $user->activity_area }}</td></tr>
+            <tr><th>性別：</th><td>{{ $user->sex }}</td></tr>
+            <tr><th>年齢：</th><td>{{ $user->age }}歳</td></tr>
+            <tr><th>担当パート：</th><td>{{ $user->my_part }}</td></tr>
+            <tr><th>レベル感：</th><td>{{ $user->my_level }}</td></tr>
+            <tr><th>演奏したいジャンル：</th><td>{{ $user->genre }}</td></tr>
+            <tr><th>活動レベル：</th><td>{{ $user->activity_level }}</td></tr>
+            <tr><th>好きなアーティスト：</th><td>{{ $user->favorite_artist }}</td></tr>
+            <tr><th>活動時間帯：</th><td>{{ $user->activity_timezone }}</td></tr>
+         </table>
+      </div>
+      <div class="d-flex flex-row-reverse mr-5">
+      @if($user->id != Auth::id())
+         @if($likeusers)
+            <form action="{{ route('unfollow', $user->id) }}" method="post">
+               @csrf
+               <button type="submit" class="unfollow">フォロー中</button>
+               <input type="hidden" value="{{ Auth::id() }}" name="from_userid">
+            </form>
+         @else
+            <form action="{{ route('follow', $user->id) }}" method="post">
+               @csrf
+               <button type="submit" class="follow">フォロー</button>
+               <input type="hidden" value="{{ Auth::id() }}" name="from_userid">
+            </form>
+         @endif
+      @endif
+      </div>
+   </div> 
+</div>
+@endsection
