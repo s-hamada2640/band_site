@@ -70,7 +70,7 @@ margin-left: 20px;
   <form method="post" action="{{ route('searchresult') }}">
     @csrf
     <div class="search-keyword">
-      <input type="text" name="keyword[]" placeholder="検索…">
+      <input type="text" name="keyword" placeholder="検索…">
       <button type='submit'>キーワード検索</button>
     </div>
   </form>

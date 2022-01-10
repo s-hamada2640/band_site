@@ -29,24 +29,32 @@ class SearchController extends Controller
         
             //検索キーワードが空の場合
             if (empty($keyword)) {
-                $keyword = $query->orderBy('created_at', 'desc')->paginate(15);  //全ユーザーを15件/ページで表示
+                $posts = $query->orderBy('created_at', 'desc')->paginate(10);  //全ユーザーを10件/ページで表示
+                $user = Auth::user();
+                
+                return view ('search.searchresult', compact('posts', 'user'));
     
             //検索キーワードが入っている場合
             } else {
                 $_q = str_replace('　', ' ', $keyword);  //全角スペースを半角に変換
-            // dd($keyword);
-                // $_q = preg_replace('/\s(?=\s)/', '', $_q); //連続する半角スペースは削除
-                // $_q = trim($_q); //文字列の先頭と末尾にあるホワイトスペースを削除
-                // $_q = str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $_q); //円マーク、パーセント、アンダーバーはエスケープ処理
-                // $keywords = array_unique(explode(' ', $_q)); //キーワードを半角スペースで配列に変換し、重複する値を削除
-
-            // キーワードが、部分的に一致するものがあれば、$keywordとして保持される
-                $item = $query->where('recruitment_part', 'like', $keyword);
+                $_q = preg_replace('/\s(?=\s)/', '', $_q); //連続する半角スペースは削除
+                $_q = trim($_q); //文字列の先頭と末尾にあるホワイトスペースを削除
+                $_q = str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $_q); //円マーク、パーセント、アンダーバーはエスケープ処理
+                $keywords = explode(' ', $_q); //キーワードを半角スペースで配列に変換し、重複する値を削除
+                // dd($keywords);
+                // $item = $query->where("recruitment_part", "like", [$keywords]);
+                // $item = $query->where('recruitment_part', 'like', $keywords[0][1]);
+                // $item = $query->orWhere('recruitment_part', 'like', $keywords[0])
+                //              ->orWhere('recruitment_part', 'like', $keywords[1])
+                //              ->orWhere('recruitment_part', 'like', $keywords[2]);
+                            //  ->orWhere('recruitment_part', 'like', $keywords[3])
+                            //  ->orWhere('recruitment_part', 'like', $keywords[4]);
+                $item = $query->whereIn("recruitment_part", $keywords);
                 // dd($item);
             }
 
         // 活動地域
-        $activity_area = $request->input('activity_area');
+        // $activity_area = $request->input('activity_area');
         // dd($activity_area);
 
         // // ジャンル
@@ -96,8 +104,8 @@ class SearchController extends Controller
         //     // dd($query);
         // }
         
-        $posts = $query->orderBy('created_at', 'desc')->paginate(15);
+        $posts = $query->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('search.searchresult', compact('posts', 'user', 'item'));
+        return view('search.searchresult', compact('posts', 'user','item'));
     }
 }
