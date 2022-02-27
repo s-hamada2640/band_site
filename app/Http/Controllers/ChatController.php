@@ -60,8 +60,10 @@ class ChatController extends Controller
     public function show($id)
     {
         $chats = Chat::where('chatroom_id',$id)->get();
+        $chatroom = Chatroom::find($id);
+        // dd($chatroom);
 
-        return view('chats.show',compact('chats'));
+        return view('chats.show',compact('chats','chatroom'));
     }
 
     /**
@@ -98,9 +100,9 @@ class ChatController extends Controller
         //
     }
 
-    public function json(User $user, $id)
+    public function json($id)
     {
-        $user = Chat::where('user_id',$id)->get();
+        $user = Chat::where('chatroom_id',$id)->get();
 
         return $user->toJson();
     }

@@ -35,6 +35,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Chat');
     }
 
+    public function chatroom()
+    {
+        return $this->belongsToMany('App\Chatroom')->withTimestamps();
+    }
+
     /**
      * The attributes that are mass assignable.
      *

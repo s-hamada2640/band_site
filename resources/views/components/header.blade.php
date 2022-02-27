@@ -40,6 +40,11 @@
                               @csrf
                               <input class="dropdown-item" type="submit" value="{{ __('マイページ') }}">
                            </form>
+                           <a class="dropdown-item" href="{{ route('users.chats', Auth::id()) }}">チャット</a>
+                           <!-- <form action="{{ route('users.chats', Auth::id()) }}" method="post">
+                              @csrf
+                              <input class="dropdown-item" type="submit" value="{{ __('チャット') }}">
+                           </form> -->
                            <a class="dropdown-item" href="{{ route('logout') }}"
                               onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

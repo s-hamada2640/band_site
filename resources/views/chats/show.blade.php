@@ -88,7 +88,7 @@
             @csrf
             <input type="submit" value='投稿'>
             <input type="text" name="message">
-            <input type="hidden" name="chatroom_id" value="1">
+            <input type="hidden" name="chatroom_id" value="{{$chatroom->id}}">
          </form>
       </div>
       <div class="article mb-4"></div>

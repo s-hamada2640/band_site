@@ -54,3 +54,6 @@ Route::post('chats','ChatController@store')->name('chats.store');
 Route::get('chats','ChatController@index')->name('chats.index');
 Route::get('chats/{id}/json','ChatController@json')->name('chats.json');
 // Route::resource('chats','ChatController');
+
+Route::post('users/{id}/chat','ChatroomController@store')->name('chatroom.store');
+Route::get('users/{id}/chat','ChatroomController@index')->name('users.chats');
