@@ -92,7 +92,7 @@ height: 48px;
                 <h3 class="mb-4">投稿タイトル：{{ $post->title }}</h3>
 
             </div>
-            <p class="mb-4">投稿者 : {{ $post->user->name }}</p>
+            <div class="mb-4">投稿者 :<a href="{{route('users.profile',$post->user->id)}}">  {{ $post->user->name }}</a></div>
             <p>記事の内容：</p>
             <p>{{ $post->message }}</p>
             <br>
