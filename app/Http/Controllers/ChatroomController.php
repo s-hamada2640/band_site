@@ -12,7 +12,7 @@ class ChatroomController extends Controller
 {
     public function index($id)
     {
-        //***** 相互フォローしているがチャットを開始していない *****/
+        //***** 相互フォローしているがチャットを開始していない場合  *****/
 
             //自分のことをフォローしている人を取得
             $followers = LikeUser::where('to_userid', Auth::id())->get();
@@ -30,27 +30,35 @@ class ChatroomController extends Controller
             // dd($mutuals);
         //***************************************************/
 
-        //***** チャットを開始している *****/
+
+
+        //***** チャットを開始している場合 *****/
 
             //自分が参加しているチャットルームを取得
             $myChatrooms = DB::table('chatroom_user')->where('user_id', Auth::id())->get();
             // dd($myChatrooms);
-
-            //$myChatroomIdに自分が参加しているチャットルームのchatroom_idを代入
-            foreach($myChatrooms as $myChatroom){
-                $myChatroomId[] = $myChatroom->chatroom_id;
+            if(count($myChatrooms)>=1){
+                //$myChatroomIdに自分が参加しているチャットルームのchatroom_idを代入
+                foreach($myChatrooms as $myChatroom){
+                    $myChatroomId[] = $myChatroom->chatroom_id;
+                }
+                // dd($myChatroomId);
+                    
+                //自分の参加チャットルームの相手のidを取得
+                $chatrooms = DB::table('chatroom_user')
+                    ->whereIn('chatroom_id', $myChatroomId)//同じチャットルーム内にいるユーザーの情報を取得
+                    ->whereNotIn('user_id', [Auth::id()])//自分のidを除外
+                    ->get();
+                // dd($chatrooms);
+                foreach($chatrooms as $chatroom){
+                    $started[] = $chatroom->user_id;
+                }
+                // dd($started);
+                return view('chatrooms.index',compact('mutuals','chatrooms','started'));
             }
-            // dd($myChatroomId);
-
-            //自分の参加チャットルームの相手のidを取得
-            $chatrooms = DB::table('chatroom_user')
-                ->whereIn('chatroom_id', $myChatroomId)//同じチャットルーム内にいるユーザーの情報を取得
-                ->whereNotIn('user_id', [Auth::id()])//自分のidを除外
-                ->get();
-            // dd($chatrooms);
         //*****************************/
 
-        return view('chatrooms.index',compact('mutuals','chatrooms'));
+        return view('chatrooms.index',compact('mutuals'));
     }
 
     public function store($id)

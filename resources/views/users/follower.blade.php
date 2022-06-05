@@ -96,7 +96,7 @@
                @foreach($follower as $follow)
                   <div class="toukou ml-3 w-75 mx-auto">
                         <!-- タイトル -->
-                     <h5><a href="{{ route('users.profile',$follow->to_user->id) }}">{{$follow->from_user->name}}</a></h5>
+                     <h5><a href="{{ route('users.profile',$follow->from_user->id) }}">{{$follow->from_user->name}}</a></h5>
                         <!--ユーザー名、年齢/性別-->
                      <p></p>
                      <!-- 投稿日時 -->
