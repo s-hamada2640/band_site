@@ -42,6 +42,8 @@ class ChatroomController extends Controller
             //自分が参加しているチャットルームを取得
             $myChatrooms = DB::table('chatroom_user')->where('user_id', Auth::id())->get();
             // dd($myChatrooms);
+            
+            //参加しているチャットルームが1つ以上ある場合
             if(count($myChatrooms)>=1){
                 //$myChatroomIdに自分が参加しているチャットルームのchatroom_idを代入
                 foreach($myChatrooms as $myChatroom){

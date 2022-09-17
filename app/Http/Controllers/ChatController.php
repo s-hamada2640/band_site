@@ -61,7 +61,7 @@ class ChatController extends Controller
     {
         $chats = Chat::where('chatroom_id',$id)->get();
         $chatroom = Chatroom::find($id);
-        // dd($chatroom);
+        // dd($chats);
 
         return view('chats.show',compact('chats','chatroom'));
     }
@@ -95,9 +95,11 @@ class ChatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        Chat::find($id)->delete();
+
+        return redirect()->route('chats.show',$request->chatroom_id);
     }
 
     public function json($id)

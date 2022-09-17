@@ -59,6 +59,7 @@ Route::get('chats/{id}/show','ChatController@show')->name('chats.show');
 Route::post('chats','ChatController@store')->name('chats.store');
 Route::get('chats','ChatController@index')->name('chats.index');
 Route::get('chats/{id}/json','ChatController@json')->name('chats.json');
+Route::post('chats/{id}/destroy','ChatController@destroy')->name('chats.destroy');
 
 //チャット相手の一覧表示
 Route::post('users/{id}/chat','ChatroomController@store')->name('chatroom.store');
