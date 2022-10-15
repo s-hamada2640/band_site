@@ -41,71 +41,30 @@ class SearchController extends Controller
                 $_q = trim($_q); //文字列の先頭と末尾にあるホワイトスペースを削除
                 $_q = str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $_q); //円マーク、パーセント、アンダーバーはエスケープ処理
                 $keywords = explode(' ', $_q); //キーワードを半角スペースで配列に変換し、重複する値を削除
-                // dd($keywords);
+                //  dd($keywords);
+                
                 // $item = $query->where("recruitment_part", "like", [$keywords]);
                 // $item = $query->where('recruitment_part', 'like', $keywords[0][1]);
-                // $item = $query->orWhere('recruitment_part', 'like', $keywords[0])
-                //              ->orWhere('recruitment_part', 'like', $keywords[1])
-                //              ->orWhere('recruitment_part', 'like', $keywords[2]);
-                            //  ->orWhere('recruitment_part', 'like', $keywords[3])
-                            //  ->orWhere('recruitment_part', 'like', $keywords[4]);
-                $item = $query->whereIn("recruitment_part", $keywords);
-                // dd($item);
+                foreach($keywords as $value) {
+                    $query->where('title', 'like', '%'.$value.'%')
+                            ->orwhere('message', 'like', '%'.$value.'%')
+                            ->orwhere('activity_area', 'like', '%'.$value.'%')
+                            ->orwhere('recruitment_part', 'like', '%'.$value.'%')
+                            ->orwhere('required_level', 'like', '%'.$value.'%')
+                            ->orwhere('band_level', 'like', '%'.$value.'%')
+                            ->orwhere('activity_level', 'like', '%'.$value.'%')
+                            ->orwhere('favorite_artist', 'like', '%'.$value.'%')
+                            ->orwhere('genre', 'like', '%'.$value.'%')
+                            ->orwhere('sex', 'like', '%'.$value.'%')
+                            ->orwhere('age', 'like', '%'.$value.'%')
+                            ->orwhere('activity_timezone', 'like', '%'.$value.'%');
+                }
+
+                $user = Auth::user();
             }
 
-        // 活動地域
-        // $activity_area = $request->input('activity_area');
-        // dd($activity_area);
-
-        // // ジャンル
-        // $genre = $request->input('genre');
-
-        // // 募集パート
-        // $recruitment_part = $request->input('recruitment_part');
-
-        // // 活動レベル
-        // $activity_level = $request->input('activity_level');
-
-        // // 相手に求めるレベル感
-        // $level = $request->input('level');
-
-        // // 年代
-        // $age = $request->input('age');
-
-        // // 性別
-        // $sex = $request->input('sex');
-
-        // // 好きなアーティスト
-        // $favorite_artist = $request->input('favorite_artist');
-
-        $id = Auth::id();
-        $user = Auth::user();
-
-        // if (isset($activity_area)) {
-        //     $query->whereIn('activity_area', $activity_area)->get();
-        // }
-        // if (isset($genre)) {
-        //     $query->whereIn('genre', $genre)->get();
-        // }
-        // if (isset($recruitment_part)) {
-        //     $query->whereIn('recruitment_part', $recruitment_part)->get();
-        // }
-        // if (isset($activity_level)) {
-        //     $query->whereIn('activity_level', $activity_level)->get();
-        // }
-        // if (isset($age)) {
-        //     $query->whereIn('age', $age)->orderBy('created_at', 'desc')->get();
-        // }
-        // if (isset($sex)) {
-        //     $query->whereIn('sex', $sex)->orderBy('created_at', 'desc')->get();
-        // }
-        // if (isset($favorite_artist)) {
-        //     $query->where('favorite_artist', $favorite_artist)->orderBy('created_at', 'desc')->get();
-        //     // dd($query);
-        // }
-        
         $posts = $query->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('search.searchresult', compact('posts', 'user','item'));
+        return view('search.searchresult', compact('posts', 'user','value'));
     }
 }
