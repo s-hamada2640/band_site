@@ -63,6 +63,10 @@
    .scroll{
       overflow-y: scroll;
    } 
+
+   .line-height{
+      line-height: 1.5;
+   }
 @endsection
 
 @section('content')
@@ -72,7 +76,7 @@
       <hr>
       <div class="mx-auto w-100">
          <div class="scroll w-100 pb-3" style="height:500px;">
-            <div id="scroll-inner">   
+            <div id="scroll-inner">
                <div id="chat" class="w-100"></div>
             </div>
          </div>
@@ -92,14 +96,14 @@
 </main>
 <script>
 function delCheck() {
-         var result = confirm("本当に削除してもよろしいですか？")
-         if(result){
-            alert("削除しました。");
+            var result = confirm("メッセージを削除してもよろしいですか？")
+            if(result){
+               alert("削除しました。");
+            }
+            else{
+               return false;
+            }
          }
-         else{
-            return false;
-         }
-}
 
 
 function recvAJAX() {
@@ -120,28 +124,31 @@ function recvAJAX() {
                var id = json[i].id;
                var user_id = json[i].user_id;
                //削除ボタン
-               var delform = '<form action="/chats/'+id+'/destroy" method="post">'
+               var delform = '<form action="/chats/'+id+'/destroy" method="post" class="d-flex align-items-end">'
                            +"<input type='submit' class='btn btn-link' value='削除' onClick='return delCheck()'>"
                            +"<input type='hidden' name='id' value='"+ id +"'>"
                            +"<input type='hidden' name='chatroom_id' value="+ "{{ $chat->chatroom_id }}" +">"
                            +"<input type='hidden' name='_token' value='{{ csrf_token() }}'>"
                            +"</form>";
                //自分の投稿
-               var myPost= "<div class='card mb-4 mt-3 w-75 ml-auto mr-1'>" 
+               var myPost ="<div class='mt-3 w-75 ml-auto mr-1'>" 
+                              +"<div class='card mt-3 ml-1'>" 
                                  +"<div class='card-body pl-5 pb-1 d-flex bd-highlight mypost'>" 
-                                    +'<p class="mr-auto p-1 bd-highlight">'+msg +'</p>'
-                                    +'<p class="text-muted p-1 bd-highlight">'+ created_at +'</p>'
+                                    +'<p class="mr-auto p-1 bd-highlight text-break line-height">'+msg +'</p>'
                                     +delform
                                  +"</div>"
-                              +"</div>";
+                              +"</div>"
+                              +'<p class="text-muted p-1 bd-highlight line-height text-right">'+ created_at +'</p>'
+                           +"</div>";
                //相手の投稿
-               var otherPost = "<div class='card mb-4 mt-3 ml-1 w-75'>" 
-                                 +"<div class='card-body pl-5 pb-1 d-flex bd-highlight'>" 
-                                    +'<p class="mr-auto p-1 bd-highlight">'+msg +'</p>'
-                                    +'<p class="p-1 bd-highlight">/</p>'
-                                    +'<p class="text-muted p-1 bd-highlight">'+ created_at +'</p>'
+               var otherPost ="<div class=' mb-4 mt-3 ml-1 w-75'>" 
+                                 + "<div class='card mt-3 ml-1'>" 
+                                    +"<div class='card-body pl-5 pb-1 d-flex bd-highlight'>" 
+                                       +'<p class="mr-auto p-1 text-break line-height">'+msg +'</p>'
+                                    +"</div>"
                                  +"</div>"
-                              +"</div>";
+                                 +'<p class="text-muted p-1 bd-highlight text-right">'+ created_at +'</p>'
+                             +"</div>";
                if ( user_id == "{{ Auth::id() }}"){
                   chat.innerHTML += myPost;
                }else{
