@@ -18,20 +18,20 @@ class SearchController extends Controller
 
     public function searchresult(Request $request)
     {
+ 
+        $user = Auth::user();
 
         //　キーワード検索フォームで入力された値を取得
         $keyword = $request->input('keyword');
         
-
         //　クエリビルダ
         $query = Post::query();
         // dd($query);
         
             //検索キーワードが空の場合
-            if (empty($keyword)) {
+            if (empty($keyword)) {                
                 $posts = $query->orderBy('created_at', 'desc')->paginate(10);  //全ユーザーを10件/ページで表示
-                $user = Auth::user();
-                
+ 
                 return view ('search.searchresult', compact('posts', 'user'));
     
             //検索キーワードが入っている場合
@@ -60,11 +60,31 @@ class SearchController extends Controller
                             ->orwhere('activity_timezone', 'like', '%'.$value.'%');
                 }
 
-                $user = Auth::user();
             }
 
         $posts = $query->orderBy('created_at', 'desc')->paginate(10);
 
         return view('search.searchresult', compact('posts', 'user','value'));
+    }
+
+    public function searchcheck(Request $request)
+    {
+        $check = $request->input('check');
+        foreach($check as $value) {
+            $check->where('title', 'like', '%'.$value.'%')
+                    ->orwhere('message', 'like', '%'.$value.'%')
+                    ->orwhere('activity_area', 'like', '%'.$value.'%')
+                    ->orwhere('recruitment_part', 'like', '%'.$value.'%')
+                    ->orwhere('required_level', 'like', '%'.$value.'%')
+                    ->orwhere('band_level', 'like', '%'.$value.'%')
+                    ->orwhere('activity_level', 'like', '%'.$value.'%')
+                    ->orwhere('favorite_artist', 'like', '%'.$value.'%')
+                    ->orwhere('genre', 'like', '%'.$value.'%')
+                    ->orwhere('sex', 'like', '%'.$value.'%')
+                    ->orwhere('age', 'like', '%'.$value.'%')
+                    ->orwhere('activity_timezone', 'like', '%'.$value.'%');
+        }
+        
+        return view('search.searchresult', compact('posts', 'user', 'value'));
     }
 }

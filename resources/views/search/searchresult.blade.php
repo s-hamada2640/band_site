@@ -114,48 +114,7 @@ cursor:pointer;
     <div class="article mb-5">
         <hr>
     </div>
-    <!-- <h3>投稿タイトル2</h3>
-      <div class="toukou">
-         <p>ユーザー名(地域 年齢)</p>
-         <p>本文最初の数行を表示</p>
-         <p>投稿日時</p>
-         <br>
-         <br>
-      </div>
-      <hr>
-      <h3>投稿タイトル3</h3>
-      <div class="toukou">
-         <p>ユーザー名(地域 年齢)</p>
-         <p>本文最初の数行を表示</p>
-         <p>投稿日時</p>
-         <br>
-         <br>
-         </div>
-         <hr>
-         <h3>投稿タイトル4</h3>
-         <div class="toukou">
-         <p>ユーザー名(地域 年齢)</p>
-         <p>本文最初の数行を表示</p>
-         <p>投稿日時</p>
-         <br>
-         <br>
-      </div>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
 
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br> -->
     </div>
 </main>
 @endsection

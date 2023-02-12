@@ -21,10 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 //マッチング（いいね機能）
 Route::post('posts/{post}/favorites', 'FavoriteController@store')->name('favorites');
 Route::post('posts/{post}/unfavorites', 'FavoriteController@destroy')->name('unfavorites');
@@ -38,6 +34,7 @@ Route::get('search', 'SearchController@search')->name('search');
 Route::get('show', 'SearchController@search')->name('show');
 Route::get('searchresult', 'SearchController@searchresult');
 Route::post('searchresult','SearchController@searchresult')->name('searchresult');
+Route::get('searchcheck', 'SearchController@searchcheck')->name('searchcheck');
 
 //マイページ
 Route::post('users/show/{user}', 'UserController@show')->name('users.show');
