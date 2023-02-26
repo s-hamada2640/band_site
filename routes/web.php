@@ -34,7 +34,8 @@ Route::get('search', 'SearchController@search')->name('search');
 Route::get('show', 'SearchController@search')->name('show');
 Route::get('searchresult', 'SearchController@searchresult');
 Route::post('searchresult','SearchController@searchresult')->name('searchresult');
-Route::get('searchcheck', 'SearchController@searchcheck')->name('searchcheck');
+Route::get('searchcheck', 'SearchController@searchcheck');
+Route::post('searchcheck', 'SearchController@searchcheck')->name('searchcheck');
 
 //マイページ
 Route::post('users/show/{user}', 'UserController@show')->name('users.show');
