@@ -99,7 +99,7 @@ cursor:pointer;
 
         @endforeach
 
-        {{$posts ?? '' -> links()}}
+        {{-- {{$posts ?? '' -> links()}} --}}
 
 
 

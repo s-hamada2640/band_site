@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use SebastianBergmann\Type\IntersectionType;
 
 class SearchController extends Controller
 {
@@ -72,7 +73,6 @@ class SearchController extends Controller
         $user = Auth::user();
 
         $check = $request->input('check');
-        // dd($check);
 
     //　クエリビルダ
         $query = Post::query();
@@ -82,42 +82,31 @@ class SearchController extends Controller
 
             // dd($posts);
  
-            return view('search.searchcheck', compact('user', 'posts'));
-        }else {
+            return view('search.searchcheck', compact('user','posts'));
+        }else{
+
+            $posts = DB::table('posts')->whereIn('title', $check)
+                                        ->orwhereIn('message', $check)
+                                        ->orwhereIn('activity_area', $check)
+                                        ->orwhereIn('recruitment_part', $check)
+                                        ->orwhereIn('required_level', $check)
+                                        ->orwhereIn('band_level', $check)
+                                        ->orwhereIn('genre', $check)
+                                        ->orwhereIn('sex', $check)
+                                        ->orwhereIn('age', $check)->get();
 
         //$postsから各カラムの情報を選択取得
-        $posts = Post::get();
-        // dd($posts);
+        // $posts = Post::get();
+        // foreach($check as $value) {   
+
+        // print_r($intersect->all());
 
         //配列$postsから$checkの中のものを検索する。
 
        // $checkをforeachで値を取得する。
         // その値と$postsの中身を比較
         //合致したものを表示
-            foreach($check as $value) {
-                $posts = Post::where('activity_area', $value)->get();
-                dd($posts);
-            //     $query->where('activity_area', $value)->first();
-            //     dd($value);
-            }
 
-
-        // foreach($posts as $value) {
-        //     $query->where('title', 'like', '%'.$value.'%')
-        //             ->orwhere('message', 'like', '%'.$value.'%')
-        //             ->orwhere('activity_area', 'like', '%'.$value.'%')
-        //             ->orwhere('recruitment_part', 'like', '%'.$value.'%')
-        //             ->orwhere('required_level', 'like', '%'.$value.'%')
-        //             ->orwhere('band_level', 'like', '%'.$value.'%')
-        //             ->orwhere('activity_level', 'like', '%'.$value.'%')
-        //             ->orwhere('favorite_artist', 'like', '%'.$value.'%')
-        //             ->orwhere('genre', 'like', '%'.$value.'%')
-        //             ->orwhere('sex', 'like', '%'.$value.'%')
-        //             ->orwhere('age', 'like', '%'.$value.'%')
-        //             ->orwhere('activity_timezone', 'like', '%'.$value.'%');
-        //     }
-
-        // dd($value);
         }
 
         return view('search.searchcheck', compact('user', 'check', 'posts'));
